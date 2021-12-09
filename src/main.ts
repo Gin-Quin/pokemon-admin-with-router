@@ -1,12 +1,16 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import PrimeVue from "primevue/config";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(createPinia())
-app.use(router)
+// app.use permet d'utiliser des plugins qui vont
+// ajouter des fonctionnalités à Vue
+app.use(createPinia());
+app.use(router);
+app.use(PrimeVue);
 
-app.mount('#app')
+app.mount("#app");

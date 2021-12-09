@@ -1,0 +1,10 @@
+:root {
+	--primary: red;
+	--secondary: blue;
+	--space-medium: 12px;
+	--space-large: 24px;
+}
+
+html, body {
+	margin: 0;
+}
