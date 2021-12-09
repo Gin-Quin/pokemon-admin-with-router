@@ -1,6 +1,6 @@
 <template>
 	<div class="pokemon-layout">
-		<header>POKEMON</header>
+		<header>Pokemon</header>
 		<main>
 			<router-view />
 		</main>
@@ -12,7 +12,5 @@
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
-	padding: 12px;
-	border: 1px solid red;
 }
 </style>

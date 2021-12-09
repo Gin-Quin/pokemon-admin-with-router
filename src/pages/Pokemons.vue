@@ -4,26 +4,10 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Button from "primevue/button"
 import { useRouter } from 'vue-router';
-import { reactive } from '@vue/reactivity';
+import { usePokemonsStore } from '@/stores/pokemonsStore';
 
 const router = useRouter()
-
-const pokemons: Pokemon[] = reactive([
-	{
-		id: 1,
-		name: "Foo",
-		height: 123,
-		weight: 12,
-		image: ""
-	},
-	{
-		id: 2,
-		name: "Bar",
-		height: 9872,
-		weight: 23,
-		image: ""
-	},
-])
+const pokemonsStore = usePokemonsStore()
 
 const viewPokemon = (pokemon: Pokemon) => {
 	router.push({ name: 'pokemon-view', params: { id: pokemon.id } })
@@ -32,13 +16,12 @@ const editPokemon = (pokemon: Pokemon) => {
 	router.push({ name: 'pokemon-edit', params: { id: pokemon.id } })
 }
 const deletePokemon = (pokemon: Pokemon) => {
-	const index = pokemons.findIndex(element => element.id == pokemon.id)
-	if (index >= 0) pokemons.splice(index, 1)
+	pokemonsStore.deletePokemon(pokemon.id)
 }
 </script>
 
 <template>
-	<DataTable :value="pokemons">
+	<DataTable :value="pokemonsStore.pokemons">
 		<Column field="id" header="id" />
 		<Column field="name" header="name" />
 		<Column field="height" header="height" />

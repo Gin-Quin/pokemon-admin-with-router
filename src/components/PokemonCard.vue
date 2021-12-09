@@ -4,14 +4,6 @@ import { Pokemon } from '@/types/Pokemon';
 const props = defineProps<{
 	pokemon: Pokemon
 }>()
-
-const emit = defineEmits<{
-	(event: "pick-pokemon", value: Pokemon): void
-}>()
-
-const pickPokemon = () => {
-	emit('pick-pokemon', props.pokemon)
-}
 </script>
 
 <template>
@@ -20,8 +12,6 @@ const pickPokemon = () => {
 		<div class="name">{{ props.pokemon.name }}</div>
 		<div class="weight">Poids: {{ props.pokemon.weight }} kg</div>
 		<div class="height">Taille : {{ props.pokemon.height }} cm</div>
-
-		<button @click="pickPokemon()">Ajouter à ma liste</button>
 	</div>
 </template>
 

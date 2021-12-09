@@ -47,8 +47,11 @@ const router = createRouter({
     // si le path ne matche aucune route, on affiche le component NotFound
     {
       path: "/:pathMatch(.*)*",
-      name: "NotFound",
+      name: "not-found",
       component: () => import("../pages/NotFound.vue"),
+      meta: {
+        layout: false,
+      },
     },
   ],
 });
