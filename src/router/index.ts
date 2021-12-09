@@ -15,22 +15,22 @@ const router = createRouter({
     },
     {
       path: "/pokemon",
-      component: () => import("../pages/PokemonLayout.vue"),
+      component: () => import("../layouts/PokemonLayout.vue"),
       children: [
         {
           path: "/create",
           name: "pokemon-new",
-          component: () => import("../pages/NewPokemon.vue"),
+          component: () => import("../pages/pokemon/NewPokemon.vue"),
         },
         {
           path: "/edit/:id",
           name: "pokemon-edit",
-          component: () => import("../pages/EditPokemon.vue"),
+          component: () => import("../pages/pokemon/EditPokemon.vue"),
         },
         {
           path: "/view/:id",
           name: "pokemon",
-          component: () => import("../pages/Pokemon.vue"),
+          component: () => import("../pages/pokemon/ViewPokemon.vue"),
         },
       ],
     },
