@@ -18,10 +18,9 @@ const padding = ref(20);
 </template>
 
 <style scoped>
-.default-layout {
-	border: 1px solid green;
-}
-header {
-	font-size: 20px;
+main {
+	/* on applique un margin vertical de 32px */
+	/* et un margin horizontal de 9px */
+	margin: 32px 9px;
 }
 </style>
