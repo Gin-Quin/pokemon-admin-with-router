@@ -7,8 +7,7 @@ import InputText from "primevue/inputtext"
 import InputNumber from "primevue/inputnumber"
 import Card from "primevue/card"
 import Button from "primevue/button"
-import { Pokemon } from '@/types/Pokemon';
-import { computed, reactive, ref } from '@vue/reactivity';
+import { computed, ref } from '@vue/reactivity';
 
 
 const pokemonsStore = usePokemonsStore()
@@ -20,7 +19,10 @@ if (isNaN(pokemonId)) {
 	router.push({ name: "not-found" })
 }
 
+// we use computed to make sure the value is up to date
+// even if the store is changed by another component
 const index = computed(() => pokemonsStore.pokemons.findIndex(pokemon => pokemon.id == pokemonId))
+
 const storedPokemon = computed(() => pokemonsStore.pokemons[index.value])
 
 const pokemon = ref(storedPokemon.value ? { ...storedPokemon.value } : undefined)

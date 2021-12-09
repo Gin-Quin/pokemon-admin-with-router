@@ -1,3 +1,4 @@
+import { useUserStore } from "@/stores/user";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -16,6 +17,20 @@ const router = createRouter({
       path: "/about",
       name: "about",
       component: () => import("../pages/About.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../pages/Login.vue"),
+      meta: {
+        public: true,
+        layout: false,
+      },
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("../pages/Profile.vue"),
     },
     {
       path: "/pokemons",
@@ -51,9 +66,19 @@ const router = createRouter({
       component: () => import("../pages/NotFound.vue"),
       meta: {
         layout: false,
+        public: true,
       },
     },
   ],
+});
+
+router.beforeEach((route) => {
+  const userStore = useUserStore();
+  if (!route.meta.public) {
+    if (!userStore.loggedIn) {
+      router.push({ name: "login" });
+    }
+  }
 });
 
 export default router;

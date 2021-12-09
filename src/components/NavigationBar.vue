@@ -5,6 +5,7 @@ const items = [
 	{ to: '/home', label: "Home" },
 	{ to: '/about', label: "About" },
 	{ to: '/pokemons', label: "Pokemons" },
+	{ to: '/profile', label: "Profile" },
 ]
 </script>
 
