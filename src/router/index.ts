@@ -23,7 +23,7 @@ const router = createRouter({
       component: () => import("../pages/pokemons.vue"),
     },
     {
-      path: "/pokemon",
+      path: "/pokemons",
       component: () => import("../layouts/PokemonLayout.vue"),
       children: [
         {
@@ -38,7 +38,7 @@ const router = createRouter({
         },
         {
           path: "view/:id",
-          name: "pokemon",
+          name: "pokemon-view",
           component: () => import("../pages/pokemon/ViewPokemon.vue"),
         },
       ],
